@@ -21,7 +21,6 @@ describe('simpleCalculator tests', () => {
   });
 
   test('should subtract two numbers', () => {
-    // Write your test here
     expect(
       simpleCalculator({
         a: 5,
