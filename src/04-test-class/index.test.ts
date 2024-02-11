@@ -7,6 +7,10 @@ import {
 } from '.';
 
 describe('BankAccount', () => {
+  jest.mock('lodash', () => ({
+    random: jest.fn().mockReturnValue(1),
+  }));
+
   test('should create account with initial balance', () => {
     // Write your test here
     const account = getBankAccount(20);
@@ -53,9 +57,9 @@ describe('BankAccount', () => {
   });
 
   test('fetchBalance should return number in case if request did not failed', async () => {
-    jest.mock('lodash', () => ({
-      random: jest.fn(() => 1),
-    }));
+    // jest.mock('lodash', () => ({
+    //   random: jest.fn().mockReturnValue(1),
+    // }));
 
     const balance = await getBankAccount(100).fetchBalance();
     expect(typeof balance).toBe('number');
